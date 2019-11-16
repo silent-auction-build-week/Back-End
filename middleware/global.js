@@ -1,7 +1,7 @@
-const express = require("express"),
-  helmet = require("helmet"),
-  cors = require("cors"),
-  morgan = require("morgan");
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+const morgan = require("morgan");
 
 module.exports = server => {
   server.use(helmet());
