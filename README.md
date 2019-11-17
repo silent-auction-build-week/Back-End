@@ -13,7 +13,7 @@ Base: https://silent-auction-be.herokuapp.com/
 | POST   | Register | /auth/register/`:userType` | See below                           | Message: `res.data.message`, Token: `res.data.token`, User object: `res.data.newUser` |
 | POST   | Login    | /auth/login/`:userType`    | JSON with "username" and "password" | Message: `res.data.message`, Token: `res.data.token`, User object: `res.data.user`    |
 
-Regisrations info:
+Registration info:
 
 | Bidder            | Seller            |
 | ----------------- | ----------------- |
