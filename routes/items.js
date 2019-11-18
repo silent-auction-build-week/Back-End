@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const router = require("express").Router();
 
 const restricted = require("../middleware/restricted");
@@ -25,7 +26,7 @@ router.get("/:sellerId/items", (req, res) => {
     .catch(error => res.status(500).json(error.message));
 });
 
-router.post("/:sellerId/item", restricted, (req, res) => {
+router.post("/:sellerId/items", restricted, (req, res) => {
   const { sellerId } = req.params;
   const item = req.body;
   const { item_name, description, price } = item;
@@ -36,7 +37,7 @@ router.post("/:sellerId/item", restricted, (req, res) => {
       .json({ message: "Please fill in the required information" });
   } else {
     Item.insert(sellerId, item)
-      .then(() => res.status(201).json({ message: "item added" }))
+      .then(() => res.status(201).json({ message: "item added", item }))
       .catch(error => res.status(500).json(error.message));
   }
 });
