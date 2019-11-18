@@ -28,6 +28,30 @@ Registration info:
 | password          | username (unique) |
 |                   | password          |
 
+## Restricted Routes
+
+*Token must be sent to access*
+
+| Method | Type        | Endpoint           | Send       | Returns              |
+| ------ | ----------- | ------------------ | ---------- | -------------------- |
+| POST   | Add Item    | /`:sellerId`/items | Item Info* | Message, Item object |
+| PUT    | Update Item | /items/`:itemId`   | Item Info* | Message, Item object |
+| DELETE | Delete Item | /items/`:itemId`   | Item ID    | Message              |
+
+Item Info
+
+- item_name - required
+- description - required
+- img_url - optional
+- price - required
+
+## Open Routes
+
+| Method | Type                            | Endpoint               | Send             | Returns      |
+| ------ | ------------------------------- | ---------------------- | ---------------- | ------------ |
+| GET    | Get All Items                   | /api/items             | Just the request | Items Object |
+| GET    | Get item with specified ID      | /api/items/`:id`       | Item ID          | Item Object  |
+| Get    | Get items from specified Seller | /api/`:sellerId`/items | Seller ID        | Items Object |
 
 ## Deploy to Heroku
 
