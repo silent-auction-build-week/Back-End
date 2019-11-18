@@ -37,7 +37,9 @@ router.post("/:sellerId/items", restricted, (req, res) => {
       .json({ message: "Please fill in the required information" });
   } else {
     Item.insert(sellerId, item)
-      .then(() => res.status(201).json({ message: "item added" }, item))
+      .then(addItem =>
+        res.status(201).json({ message: "item added" }, { addItem })
+      )
       .catch(error => res.status(500).json(error.message));
   }
 });
@@ -51,7 +53,7 @@ router.put("/items/:itemId", restricted, (req, res) => {
     res.status(400).json({ message: "Please fill in the required fields" });
   } else {
     Item.update(itemId, changes)
-      .then(item => res.status(200).json({ message: "Item updated" }, item))
+      .then(item => res.status(200).json({ message: "Item updated" }, { item }))
       .catch(error => res.status(500).json(error.message));
   }
 });
