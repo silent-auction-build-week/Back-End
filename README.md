@@ -15,18 +15,18 @@ Base: https://silent-auction-be.herokuapp.com/
 
 Registration info:
 
-| Bidder            | Seller            |
-| ----------------- | ----------------- |
-| firstName         | firstName         |
-| lastName          | lastName          |
-| email (unique)    | organization      |
-| streetAddress     | email (unique)    |
-| city              | streetAddress     |
-| state             | city              |
-| zipCode           | state             |
-| username (unique) | zipCode           |
-| password          | username (unique) |
-|                   | password          |
+| Bidder & Seller   |
+| ----------------- |
+| firstName         |
+| lastName          |
+| email (unique)    |
+| streetAddress     |
+| city              |
+| state             |
+| zipCode           |
+| username (unique) |
+| password          |
+|                   |
 
 ## Restricted Routes
 
