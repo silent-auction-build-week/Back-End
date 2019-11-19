@@ -37,7 +37,7 @@ Registration info:
 | POST   | Add Item       | /`:sellerId`/items              | Item Info*                                     | Message, Item object       |
 | PUT    | Update Item    | /items/`:itemId`                | Item Info*                                     | Message, Item object       |
 | DELETE | Delete Item    | /items/`:itemId`                | Item ID                                        | Message                    |
-| ------ | ------------   | --------------------            | ------------                                   | ---------------------      |
+|        |                |                                 |                                                |                            |
 | Post   | Add Auction    | /`:sellerId`/`:itemId`/auctions | Seller ID, Item ID, auction_start, auction_end | message, newAuction object |
 | Delete | Delete Auction | /auctions/`:auctionId`          | Auction ID                                     | Message                    |
 
@@ -50,15 +50,15 @@ Item Info
 
 ## Open Routes
 
-| Method  | Type                             | Endpoint                   | Send              | Returns         |
-| ------- | -------------------------------- | -------------------------- | ----------------- | --------------- |
-| GET     | Get all Items                    | /api/items                 | Just the request  | Items Array     |
-| GET     | Get item with specified ID       | /api/items/`:id`           | Item ID           | Item Array      |
-| Get     | Get items from specified Seller  | /api/`:sellerId`/items     | Seller ID         | Items Array     |
-| ------- | -------------------------------- | -------------------------- | ----------------- | --------------- |
-| Get     | Get all auctions                 | /api/auctions              | Just the request  | Auctions Array  |
-| Get     | Get specified seller's auctions  | /api/`:sellerId`/auctions  | Seller ID         | Auctions Array  |
-| Get     | Get specified auction            | /api/auctions/:id          | Auction ID        | Auction Array   |
+| Method | Type                            | Endpoint                  | Send             | Returns        |
+| ------ | ------------------------------- | ------------------------- | ---------------- | -------------- |
+| GET    | Get all Items                   | /api/items                | Just the request | Items Array    |
+| GET    | Get item with specified ID      | /api/items/`:id`          | Item ID          | Item Array     |
+| Get    | Get items from specified Seller | /api/`:sellerId`/items    | Seller ID        | Items Array    |
+|        |                                 |                           |                  |                |
+| Get    | Get all auctions                | /api/auctions             | Just the request | Auctions Array |
+| Get    | Get specified auction           | /api/auctions/:id         | Seller ID        | Auctions Array |
+| Get    | Get specified seller's auctions | /api/`:sellerId`/auctions | Auction ID       | Auction Array  |
 
 ## Deploy to Heroku
 
