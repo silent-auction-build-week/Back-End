@@ -14,7 +14,6 @@ module.exports.up = function(knex) {
     tbl
       .integer("bidder_id")
       .unsigned()
-      .notNullable()
       .references("id")
       .inTable("bidders")
       .onUpdate("CASCADE")
