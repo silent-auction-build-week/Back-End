@@ -1,11 +1,11 @@
-const db = require("../data/dbConfig");
+const dBase = require("../data/dbConfig");
 
 function insert(table, user) {
-  return db.insert(user).into(table);
+  return dBase.insert(user).into(table);
 }
 
 function findBy(table, user) {
-  return db(table).where(user);
+  return dBase(table).where(user);
 }
 
 module.exports = {

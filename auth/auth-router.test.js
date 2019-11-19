@@ -5,15 +5,15 @@
 const request = require("supertest");
 
 const server = require("../server");
-const db = require("../data/dbConfig");
+const dBase = require("../data/dbConfig");
 
-test("should set db environment to testing", function() {
+test("should set dBase environment to testing", function() {
   expect(process.env.DB_ENV).toBe("testing");
 });
 
 describe("Bidder Registration and Login", function() {
   describe("POST to /auth/register/bidders", function() {
-    beforeEach(async () => await db("bidders").truncate());
+    beforeEach(async () => await dBase("bidders").truncate());
 
     test("Successful Bidder registration returns status 201 CREATED", async () => {
       const res = await request(server)
@@ -75,7 +75,7 @@ describe("Bidder Registration and Login", function() {
 
 describe("Seller Registration and Login", function() {
   describe("POST to /auth/register/sellers", function() {
-    beforeEach(async () => await db("sellers").truncate());
+    beforeEach(async () => await dBase("sellers").truncate());
 
     test("Successful Bidder registration returns status 201 CREATED", async () => {
       const res = await request(server)
