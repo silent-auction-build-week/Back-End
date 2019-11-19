@@ -25,7 +25,7 @@ router.get("/auctions/:id", (req, res) => {
     .catch(error => res.status(500).json(error.message));
 });
 
-router.post("/:sellerId/:itemId/auctions", (req, res) => {
+router.post("/:sellerId/:itemId/auctions", restricted, (req, res) => {
   const { sellerId, itemId } = req.params;
   const time = req.body;
   const { auction_start, auction_end } = time;
@@ -43,7 +43,7 @@ router.post("/:sellerId/:itemId/auctions", (req, res) => {
   }
 });
 
-router.delete("/auctions/:auctionId", (req, res) => {
+router.delete("/auctions/:auctionId", restricted, (req, res) => {
   const { auctionId } = req.params;
 
   Auction.remove(auctionId)
