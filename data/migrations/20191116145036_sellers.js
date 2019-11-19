@@ -3,7 +3,6 @@ module.exports.up = function(knex) {
     tbl.increments();
     tbl.string("firstName").notNullable();
     tbl.string("lastName").notNullable();
-    tbl.string("organization");
     tbl
       .string("email ")
       .notNullable()
