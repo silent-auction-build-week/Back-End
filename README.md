@@ -32,14 +32,15 @@ Registration info:
 
 *Token must be sent to access*
 
-| Method | Type           | Endpoint                        | Send                                           | Returns                    |
-| ------ | -------------- | ------------------------------- | ---------------------------------------------- | -------------------------- |
-| POST   | Add Item       | /`:sellerId`/items              | Item Info*                                     | Message, Item object       |
-| PUT    | Update Item    | /items/`:itemId`                | Item Info*                                     | Message, Item object       |
-| DELETE | Delete Item    | /items/`:itemId`                | Item ID                                        | Message                    |
-|        |                |                                 |                                                |                            |
-| Post   | Add Auction    | /`:sellerId`/`:itemId`/auctions | Seller ID, Item ID, auction_start, auction_end | message, newAuction object |
-| Delete | Delete Auction | /auctions/`:auctionId`          | Auction ID                                     | Message                    |
+| Method | Type               | Endpoint                        | Send                                           | Returns                    |
+| ------ | ------------------ | ------------------------------- | ---------------------------------------------- | -------------------------- |
+| POST   | Add Item           | /`:sellerId`/items              | Item Info*                                     | Message, Item object       |
+| PUT    | Update Item        | /items/`:itemId`                | Item Info*                                     | Message, Item object       |
+| DELETE | Delete Item        | /items/`:itemId`                | Item ID                                        | Message                    |
+|        |                    |                                 |                                                |                            |
+| Post   | Add Auction        | /`:sellerId`/`:itemId`/auctions | Seller ID, Item ID, auction_start, auction_end | message, newAuction object |
+| PUT    | Update auction_end | /auctions/`auctionId`           | Auction ID                                     | Message                    |
+| Delete | Delete Auction     | /auctions/`:auctionId`          | Auction ID                                     | Message                    |
 
 Item Info
 
