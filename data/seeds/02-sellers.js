@@ -6,7 +6,6 @@ module.exports.seed = function(knex) {
     {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
-      organization: faker.company.companyName(),
       email: "seller1@test.com",
       streetAddress: faker.address.streetAddress(),
       city: faker.address.city(),
@@ -18,7 +17,6 @@ module.exports.seed = function(knex) {
     {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
-      organization: faker.company.companyName(),
       email: "seller2@test.com",
       streetAddress: faker.address.streetAddress(),
       city: faker.address.city(),
@@ -30,7 +28,6 @@ module.exports.seed = function(knex) {
     {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
-      organization: faker.company.companyName(),
       email: "seller3@test.com",
       streetAddress: faker.address.streetAddress(),
       city: faker.address.city(),
@@ -42,7 +39,6 @@ module.exports.seed = function(knex) {
     {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
-      organization: faker.company.companyName(),
       email: "seller4@test.com",
       streetAddress: faker.address.streetAddress(),
       city: faker.address.city(),
