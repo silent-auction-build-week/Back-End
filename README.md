@@ -40,7 +40,7 @@ Registration info:
 | DELETE   | Delete Item        | /items/`:itemId`                         | Item ID                                        | Message                    |
 | Auctions |                    |                                          |                                                |                            |
 | Post     | Add Auction        | /`:sellerId`/`:itemId`/auctions          | Seller ID, Item ID, auction_start, auction_end | message, newAuction object |
-| PUT      | Update auction_end | /auctions/`auctionId`                    | Auction ID                                     | Message                    |
+| PUT      | Update auction_end | /auctions/`auctionId`                    | Auction ID, auction_end                        | Message                    |
 | Delete   | Delete Auction     | /auctions/`:auctionId`                   | Auction ID                                     | Message                    |
 | Users    |                    |                                          |                                                |                            |
 | DELETE   | Removes User       | /api/sellers/`:id` or /api/bidders/`:id` | ID                                             | Message                    |
@@ -69,6 +69,6 @@ Item Info
 
 [Postgres and Heroku](https://www.youtube.com/watch?v=4WECh9OVvgk)
 
-npx heroku run knex migrate:rollback -a (application name) ??
-npx heroku run knex migrate:latest -a (application name)
-npx heroku run knex seed:run -a (application name)
+1. npx heroku run knex migrate:rollback -a (app name)
+2. npx heroku run knex migrate:latest -a (app name)
+3. npx heroku run knex seed:run -a (app name) 
