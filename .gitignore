@@ -105,3 +105,5 @@ dist
 
 # Linter config
 .eslintrc.json
+
+data/test.db3
