@@ -62,6 +62,12 @@ function insert(sellerId, itemId, time) {
   return db("auctions").insert(newAuction);
 }
 
+function update(id, change) {
+  return db("auctions")
+    .where({ id })
+    .update(change);
+}
+
 function remove(id) {
   return db("auctions")
     .where({ id })
@@ -73,5 +79,6 @@ module.exports = {
   getBySellerId,
   getByAuctionId,
   insert,
+  update,
   remove
 };

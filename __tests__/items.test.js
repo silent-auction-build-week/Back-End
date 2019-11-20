@@ -35,7 +35,7 @@ describe("Get, add, update, remove items", function() {
 
   describe("POST to /api/:sellerId/item", function() {
     test("Returns status 401 UNAUTHORIZED if token not present", async () => {
-      const res = await request(server).post("/api/1/item");
+      const res = await request(server).post("/api/1/items");
 
       expect(res.status).toBe(401);
     });
