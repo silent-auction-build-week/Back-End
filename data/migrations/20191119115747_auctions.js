@@ -4,18 +4,18 @@ module.exports.up = function(knex) {
     tbl.datetime("auction_start").notNullable();
     tbl.datetime("auction_end").notNullable();
     tbl
+      .integer("bidder_id")
+      .unsigned()
+      .references("id")
+      .inTable("bidders")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
+    tbl
       .integer("seller_id")
       .unsigned()
       .notNullable()
       .references("id")
       .inTable("sellers")
-      .onUpdate("CASCADE")
-      .onDelete("CASCADE");
-    tbl
-      .integer("bidder_id")
-      .unsigned()
-      .references("id")
-      .inTable("bidders")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     tbl
