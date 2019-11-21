@@ -43,6 +43,22 @@ router.post("/:sellerId/:itemId/auctions", restricted, (req, res) => {
   }
 });
 
+router.put("/auctions/:auctionId", (req, res) => {
+  const { auctionId } = req.params;
+  const change = req.body;
+  const { auction_end } = change;
+
+  if (!auction_end) {
+    res
+      .status(400)
+      .json({ message: "please fill in the required information" });
+  } else {
+    Auction.update(auctionId, change)
+      .then(() => res.status(202).json({ message: "auction end updated" }))
+      .catch(error => res.status(500).json(error.message));
+  }
+});
+
 router.delete("/auctions/:auctionId", restricted, (req, res) => {
   const { auctionId } = req.params;
 

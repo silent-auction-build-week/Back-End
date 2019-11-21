@@ -11,7 +11,6 @@ function getBySellerId(sellerId) {
   return db("items as i")
     .join("sellers as s", "i.seller_id", "s.id")
     .select(
-      "s.organization",
       "s.firstName",
       "s.lastName",
       "s.email",
@@ -52,8 +51,3 @@ module.exports = {
   update,
   remove
 };
-
-// refined steel tuna
-// unbranded wooden table
-// licensed frozen table
-// tasty frozen chips

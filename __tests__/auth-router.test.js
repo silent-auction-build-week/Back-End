@@ -61,7 +61,7 @@ describe("Bidder Registration and Login", function() {
       const res = await request(server)
         .post("/auth/login/bidders")
         .send({ username: "bidder", password: "1234" });
-      expect(res.body.token);
+      expect(res.body.token).toBeTruthy();
     });
 
     test("Unsuccessful Bidder login returns status 401 UNAUTHORIZED", async () => {
@@ -77,13 +77,12 @@ describe("Seller Registration and Login", function() {
   describe("POST to /auth/register/sellers", function() {
     beforeEach(async () => await dBase("sellers").truncate());
 
-    test("Successful Bidder registration returns status 201 CREATED", async () => {
+    test("Successful Seller registration returns status 201 CREATED", async () => {
       const res = await request(server)
         .post("/auth/register/sellers")
         .send({
           firstName: "seller",
           lastName: "seller",
-          organization: "seller",
           email: "user@seller.com",
           streetAddress: "123456",
           city: "seller",
@@ -95,13 +94,12 @@ describe("Seller Registration and Login", function() {
       expect(res.status).toBe(201);
     });
 
-    test("Successful Bidder registration returns a token", async () => {
+    test("Successful Seller registration returns a token", async () => {
       const res = await request(server)
         .post("/auth/register/sellers")
         .send({
           firstName: "seller",
           lastName: "seller",
-          organization: "seller",
           email: "user@seller.com",
           streetAddress: "123456",
           city: "seller",
@@ -110,25 +108,25 @@ describe("Seller Registration and Login", function() {
           username: "seller",
           password: "1234"
         });
-      expect(res.body.token);
+      expect(res.body.token).toBeTruthy();
     });
   });
   describe("POST to /auth/login/sellers", function() {
-    test("Successful Bidder login returns status 200 OK", async () => {
+    test("Successful Seller login returns status 200 OK", async () => {
       const res = await request(server)
         .post("/auth/login/sellers")
         .send({ username: "seller", password: "1234" });
       expect(res.status).toBe(200);
     });
 
-    test("Successful Bidder login returns a token", async () => {
+    test("Successful Seller login returns a token", async () => {
       const res = await request(server)
         .post("/auth/login/sellers")
         .send({ username: "seller", password: "1234" });
       expect(res.body.token);
     });
 
-    test("Unsuccessful Bidder login returns status 401 UNAUTHORIZED", async () => {
+    test("Unsuccessful Seller login returns status 401 UNAUTHORIZED", async () => {
       const res = await request(server)
         .post("/auth/login/sellers")
         .send({ username: "seller", password: "thewrongone" });
