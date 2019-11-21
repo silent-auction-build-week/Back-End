@@ -3,7 +3,7 @@ module.exports.up = function(knex) {
     tbl.increments();
     tbl.string("item_name", 100).notNullable();
     tbl.string("description", 500).notNullable();
-    tbl.binary("img_url");
+    tbl.string("img_url");
     tbl.float("price", 8, 2);
     tbl
       .integer("seller_id")
