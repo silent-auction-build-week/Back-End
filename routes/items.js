@@ -11,9 +11,9 @@ router.get("/items", (req, res) => {
 });
 
 router.get("/items/:id", (req, res) => {
-  const id = req.params;
+  const { id } = req.params;
 
-  Item.getById("items", id)
+  Item.getById(id)
     .then(item => res.status(200).json({ item }))
     .catch(error => res.status(500).json(error.message));
 });
@@ -51,7 +51,11 @@ router.put("/items/:itemId", restricted, (req, res) => {
     res.status(400).json({ message: "Please fill in the required fields" });
   } else {
     Item.update(itemId, changes)
-      .then(() => res.status(200).json({ message: "Item updated" }))
+      .then(() => {
+        Item.getById(itemId)
+          .then(updatedItem => res.status(200).json({ updatedItem }))
+          .catch(error => res.status(500).json(error.message));
+      })
       .catch(error => res.status(500).json(error.message));
   }
 });
