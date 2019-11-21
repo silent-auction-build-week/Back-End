@@ -29,7 +29,7 @@ router.get("/:sellerId/items", (req, res) => {
 router.post("/:sellerId/items", restricted, (req, res) => {
   const { sellerId } = req.params;
   const item = req.body;
-  const { item_name, description, price } = item;
+  const { item_name, description, price, item_end_time } = item;
 
   if (!item_name || !description || !price) {
     res
@@ -45,7 +45,7 @@ router.post("/:sellerId/items", restricted, (req, res) => {
 router.put("/items/:itemId", restricted, (req, res) => {
   const { itemId } = req.params;
   const changes = req.body;
-  const { item_name, description, price } = changes;
+  const { item_name, description, price, item_end_time } = changes;
 
   if (!item_name || !description || !price) {
     res.status(400).json({ message: "Please fill in the required fields" });
