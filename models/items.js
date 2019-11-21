@@ -4,8 +4,9 @@ function get(table) {
   return db(table);
 }
 
-function getById(table, id) {
-  return db(table).where(id);
+function getById(id) {
+  console.log(id);
+  return db("items").where({ id });
 }
 function getBySellerId(sellerId) {
   return db("items as i")
