@@ -51,6 +51,7 @@ Item Info
 - description - required
 - img_url - optional
 - price - required
+- item_end_time - required
 
 ## Open Routes
 
