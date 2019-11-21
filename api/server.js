@@ -15,10 +15,12 @@ server.use(helmet());
 server.use(cors());
 
 server.use(express.static("middleware"));
-server.use("/api/auth", authRoute);
+server.use("/auth", authRoute);
 server.use("/api/auction", help.verifyToken, auctRoute);
 server.use("/api/bids", help.verifyToken, bidRoute);
 server.use("/api/user", help.verifyToken, userRoute);
 server.get("/", (req, res) => {
   res.send("Thanks for bidding with us!");
 });
+
+module.exports = server
