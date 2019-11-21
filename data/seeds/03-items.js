@@ -9,6 +9,7 @@ const generateRandom = (min, max) => {
 const createItem = () => ({
   item_name: faker.commerce.productName(),
   description: faker.lorem.paragraph(),
+  item_end_time: faker.date.future(),
   img_url: faker.image.image(),
   price: faker.commerce.price(),
   seller_id: generateRandom(1, 5)

@@ -5,6 +5,7 @@ module.exports.up = function(knex) {
     tbl.string("description", 500).notNullable();
     tbl.string("img_url");
     tbl.float("price", 8, 2);
+    tbl.datetime("item_end_time").notNullable();
     tbl
       .integer("seller_id")
       .unsigned()
