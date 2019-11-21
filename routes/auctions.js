@@ -43,7 +43,7 @@ router.post("/:sellerId/:itemId/auctions", restricted, (req, res) => {
   }
 });
 
-router.put("/auctions/:auctionId", (req, res) => {
+router.put("/auctions/:auctionId", restricted, (req, res) => {
   const { auctionId } = req.params;
   const change = req.body;
   const { auction_end } = change;
